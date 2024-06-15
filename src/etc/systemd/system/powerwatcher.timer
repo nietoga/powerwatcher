@@ -1,0 +1,9 @@
+[Unit]
+Description="Run powerwatcher.service every minute"
+Requires=powerwatcher.service
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+
+[Install]
+WantedBy=timers.target
