@@ -1,9 +1,0 @@
-[Unit]
-Description="Run powerwatcher.service every X minutes"
-Requires=powerwatcher.service
-
-[Timer]
-OnUnitInactiveSec=5min
-
-[Install]
-WantedBy=timers.target

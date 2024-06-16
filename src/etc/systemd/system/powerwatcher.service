@@ -3,4 +3,3 @@ Description="Powerwatcher service"
 
 [Service]
 ExecStart=/usr/local/bin/powerwatcher.sh
-Type=oneshot
