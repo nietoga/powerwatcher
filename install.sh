@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 
 sudo cp -rT src /
-sudo systemctl enable powerwatcher.timer
-sudo systemctl start powerwatcher.timer
+sudo systemctl enable powerwatcher.service
+sudo systemctl start powerwatcher.service

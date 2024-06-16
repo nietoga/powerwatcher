@@ -2,20 +2,27 @@
 
 source /etc/powerwatcher.conf
 
-should_shutdown=true
+sleep $WAIT_BEFORE_START
 
-for i in $(seq 1 1 $NUMBER_OF_ATTEMPTS)
+while true
 do
-    if ping -c 1 $IP
+    should_shutdown=true
+
+    for i in $(seq 1 1 $NUMBER_OF_ATTEMPTS)
+    do
+        if ping -c 1 $IP
+        then
+            should_shutdown=false
+            break
+        fi
+
+        sleep $WAIT_BETWEEN_ATTEMPTS
+    done
+
+    if $should_shutdown
     then
-        should_shutdown=false
-        break
+        shutdown now
     fi
 
-    sleep $INTERVAL_IN_SECONDS
+    sleep $WAIT_BETWEEN_EXECUTIONS
 done
-
-if $should_shutdown
-then
-    shutdown now
-fi
