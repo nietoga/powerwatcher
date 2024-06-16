@@ -3,3 +3,6 @@ Description="Powerwatcher service"
 
 [Service]
 ExecStart=/usr/local/bin/powerwatcher.sh
+
+[Install]
+WantedBy=multi-user.target
